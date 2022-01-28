@@ -10,9 +10,31 @@
     </h3>
 
     <div class="deck">
-      <div class="row1">123</div>
-      <div class="row1">123</div>
-      <div class="row1">123</div>
+
+      <div class="box1">
+
+        <!-- <div class="row1"><img src="../assets/huochai.jpeg" alt="huochai">333</div>
+        <div class="row1">123</div>
+        <div class="row1">123</div> -->
+        <div v-for="(i,index) in huocai" :key="index" class="row1" v-show="!indexArr.includes(index)" @click="c(index)"><img class="img" src="@/assets/huichai.jpeg" alt="huochai"></div>
+      </div>
+      <div class="box2">
+        <div class="row1">123</div>
+        <div class="row1">123</div>
+        <div class="row1">123</div>
+        <div class="row1">123</div>
+        <div class="row1">123</div>
+      </div>
+      <div class="box3">
+        <div class="row1">123</div>
+        <div class="row1">123</div>
+        <div class="row1">123</div>
+        <div class="row1">123</div>
+        <div class="row1">123</div>
+        <div class="row1">123</div>
+        <div class="row1">123</div>
+      </div>
+
     </div>
 
   </div>
@@ -25,7 +47,13 @@ export default {
     return {
       // firstDisabled: true,
       disabled: false,
-      disabledGroup: ''
+      disabledGroup: '',
+      ishow: true,
+      huocai: [{
+        value: 123,
+        show: true,
+      }],
+      indexArr: []
     }
   },
   methods: {
@@ -33,7 +61,13 @@ export default {
       if (this.disabledGroup) {
         this.disabled = true
       }
+    },
+    c (index) {
+      this.indexArr.push(index)
+      // this.indexArr.includes
     }
+
+
   },
 }
 </script>
@@ -47,11 +81,10 @@ export default {
   font-size: 16px;
 }
 .deck {
-  display: flex;
+  /* display: flex; */
   width: 1160px;
-  min-height: 780px;
+  height: 780px;
   background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
-  padding: 18px 0px 0px 18px;
   border-radius: 10px;
   box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
   flex-wrap: wrap;
@@ -59,14 +92,18 @@ export default {
 }
 .row1 {
   flex: 1;
-  height: 88px;
+  height: 78px;
+  line-height: 78px;
+  margin: 91px 0px;
 }
-.row2 {
-  flex: 1;
-  height: 88px;
+.img {
+  width: 100px;
+  height: 100px;
 }
-.row3 {
-  flex: 1;
-  height: 88px;
+
+.box1,
+.box2,
+.box3 {
+  display: flex;
 }
 </style>
